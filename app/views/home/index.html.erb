@@ -1,0 +1,124 @@
+<div class="bg-inverse collapse" id="navbarHeader" aria-expanded="false">
+      <div class="container">
+        <div class="row">
+          <div class="col-sm-8 py-4">
+            <h4 class="text-white">Desenmascara la Prostituyente</h4>
+            <p class="text-muted">Coloca las fotos de los centros de votación que el régimen de Maduro no quiere que vean.</p>
+          </div>
+          <div class="col-sm-4 py-4">
+            <h4 class="text-white">Contact</h4>
+            <ul class="list-unstyled">
+              <li><a href="#" class="text-white">Twitter</a></li>
+              <li><a href="#" class="text-white">Facebook</a></li>
+              <li><a href="#" class="text-white">Correo</a></li>
+            </ul>
+          </div>
+        </div>
+      </div>
+    </div>
+    <div class="navbar navbar-inverse bg-inverse">
+      <div class="container d-flex justify-content-between">
+        <a href="#" class="navbar-brand">Desenmascara la Prostituyente</a>
+        <button class="navbar-toggler collapsed" type="button" data-toggle="collapse" data-target="#navbarHeader" aria-controls="navbarHeader" aria-expanded="false" aria-label="Toggle navigation">
+          <span class="navbar-toggler-icon"></span>
+        </button>
+      </div>
+    </div>
+    <% unless flash[:info].nil? %>
+      <div class="alert alert-success" role="alert">
+        <strong><%= flash[:info] %></strong>
+      </div>
+    <% end %>
+
+    <% unless flash[:alert].nil? %>
+      <div class="alert alert-danger" role="info">
+        <strong><%= flash[:alert] %></strong>
+      </div>
+    <% end %>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 name="OnTop" class="jumbotron-heading">Busca tu Centro y desenmascara la Prostituyente</h1>
+
+        <%= form_tag(:index, class: "", id: "search_form") do %>
+
+          <div class="form-group form-group-top">
+            <%= label_tag(:search_state_id, "Estado:", class: "labels") %>
+            <%= select_tag :search_state_id, options_for_select(Center.states, params[:search_state_id].nil? ? "" : params[:search_state_id]), :include_blank => 'Seleccione el estado', class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag(:search_municipality_id, "Municipio:", class: "labels") %>
+            <%= select_tag :search_municipality_id, options_for_select(@municipalities, params[:search_municipality_id].nil? ? "" : params[:search_municipality_id] ), class: "form-control" %>
+          </div>
+
+          <div class="form-group form-group-bottom">
+            <%= submit_tag("Buscar", class: "btn btn-primary center-block") %>  
+          </div>            
+        <% end %>
+        <p class="lead text-muted">Si no hay fotos, ayudanos, tomalas y compartelas.</p>
+        <p>
+          <a id="AddPhoto">Agregar Foto</a>
+        </p>
+      </div>
+    </section>
+
+    <div class="album text-muted">
+      <div class="container">
+
+        <div class="row">
+          <% @photos.each do |photo| %>
+            <div class="card">
+              <%= image_tag photo.file.url(:medium), style: "height: 280px; width: 100%; display: block;", "data-holder-rendered": true %>
+              <p class="card-text"> <strong><%= photo.center.state_municipality %></strong> </p>
+              <p class="card-text"> <strong><%= photo.center.name %></strong> </p>
+              <p class="card-text" style="font-size: 10px"> <%= photo.center.direction %> </p>
+            </div>
+          <% end %>
+        </div>
+
+      </div>
+    </div>
+
+    <section class="jumbotron text-center">
+      <div class="container">
+        <h1 id="AddPhoto" class="jumbotron-heading">Ayudanos a Difundir</h1>
+        <p class="lead text-muted">Agrega las fotos de los centros de votación vacíos que tengas cerca de tu casa.</p>
+        <%= form_tag(:create, class: "theform", id: "data_form", multipart: true ) do %>
+
+          <div class="form-group form-group-top">
+            <%= label_tag(:state_id, "Estado:", class: "labels") %>
+            <%= select_tag :state_id, options_for_select(Center.states), :include_blank => 'Seleccione el Estado', class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag(:municipality_id, "Municipio:", class: "labels") %>
+            <%= select_tag :municipality_id, options_for_select([]), class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag(:center_id, "Centro de votación:", class: "labels") %>
+            <%= select_tag :center_id, options_for_select([]), class: "form-control" %>
+          </div>
+
+          <div class="form-group">
+            <%= label_tag(:file, "Foto del Centro:", class: "labels") %>
+            <%= file_field_tag :file %>                        
+          </div>
+          <div class="form-group form-group-bottom">
+            <%= submit_tag("Agregar", class: "btn btn-primary center-block") %>  
+          </div>            
+        <% end %>
+      </div>
+    </section>
+
+    <footer class="text-muted">
+      <div class="container">
+        <p class="float-right">
+          <a id="OnTop">Ir Arriba</a>
+        </p>
+        <p>Desenmascara la Protituyente por una nueva venezuela</p>
+        <p>Sociedad Civil Activa en defensa de la Constitución</p>
+      </div>
+    </footer>
+  

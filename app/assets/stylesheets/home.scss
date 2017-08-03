@@ -1,0 +1,33 @@
+// Place all the styles related to the home controller here.
+// They will automatically be included in application.css.
+// You can use Sass (SCSS) here: http://sass-lang.com/
+
+
+.bg-inverse {
+  background-color: #025aa5 !important;
+}
+.labels{
+  margin-right: 20px;
+  font-size: larger;
+}
+
+.theform{
+  background: rgba(2, 90, 165, 0.12);
+}
+
+.form-group-top{
+  padding-top: 10px;
+}
+
+.form-group-bottom{
+  padding-bottom: 10px;
+}
+
+.form-group{
+  margin-left: 5%;
+  margin-right: 5%;
+}
+.alert{
+  text-align: center;
+  font-size: x-large;
+}
