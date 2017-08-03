@@ -18,3 +18,5 @@ El proyecto puede servir como base para otros proyectos similares.
 La app contiene seed con los datos el CNE de los centros de votación, pero sólo organizados por estados y municipios. Las parroquias existen tambien pero están codificadas, hay que agregar los nombres de cada parroquia por cada codigo que existe de centro, es un trabajo complicado. Los datos de las parroquias están en la misma página del CNE, si quieres aportar y cargarlas, estoy a la orden para dar mas información.
 
 
+![alt text](https://raw.githubusercontent.com/luelher/prostituyente/master/app/assets/images/ejemplo.png)
+
