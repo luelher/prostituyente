@@ -1,24 +1,20 @@
-# README
+# Prostituyente
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
+Este pequeño proyecto surgió con la idea de que las personas pudieran dar a conocer y centralizar las imagenes de los centros de votación vacíos en la elección de la Asamblea Nacional Constituyente.
 
-Things you may want to cover:
+Funciona pero no pudo se colocado en producción por falta de tiempo.
 
-* Ruby version
+# Tecnologías
 
-* System dependencies
+* Rails 5
+* Ruby 2
+* Boostrap
+* JQuery
 
-* Configuration
+El proyecto puede servir como base para otros proyectos similares.
 
-* Database creation
+# Base de datos de centros de Votación
 
-* Database initialization
+La app contiene seed con los datos el CNE de los centros de votación, pero sólo organizados por estados y municipios. Las parroquias existen tambien pero están codificadas, hay que agregar los nombres de cada parroquia por cada codigo que existe de centro, es un trabajo complicado. Los datos de las parroquias están en la misma página del CNE, si quieres aportar y cargarlas, estoy a la orden para dar mas información.
 
-* How to run the test suite
 
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
